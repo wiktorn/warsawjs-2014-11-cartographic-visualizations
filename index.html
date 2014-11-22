@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <title>WarsawJS Presentation Template</title>
+    <title>Cartographic visualizations using LeafletJS</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=792, user-scalable=no">
@@ -9,12 +9,23 @@
 
     <link rel="stylesheet" href="themes/warsawjs/styles/ribbon-theme.css">
     <link rel="stylesheet" href="themes/warsawjs/styles/warsawjs-theme.css">
+    <style>
+        .slide pre code {
+            line-height: 1.75
+        }
+    </style>
 </head>
 <body class="list">
     <header class="caption">
-        <h1>WarsawJS Presentation Template</h1>
+        <h1>Cartographic visualizations using LeafletJS</h1>
         <p>We talk about JavaScript. Each month in Warsaw, Poland.</p>
     </header>
+
+<!--
+    najpierw przedstawić problem
+    potem pokazć drogę do rozwiązania i problemy po drodze
+    JEDNA TEZA
+-->
 
     <section class="slide front-page">
         <div>
@@ -22,97 +33,284 @@
                 <img src="themes/warsawjs/pictures/logo.png">
             </div>
             <div class="content">
-                <h2>WarsawJS Presentation Template</h2>
-                <p>Author Name <a href="http://twitter.com/author">@author</a>
+                <h2>Cartographic visualizations using LeafletJS</h2>
+                <p>Autor: Wiktor Niesiobędzki</a>
+                <p><a href="http://creativecommons.org/licenses/by-sa/3.0/pl/">CC-BY-SA 3.0</a></p>
             </div>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Plain Text on Your Slides</h2>
+            <div style="float: left">
+            <h2>Who I am</h2>
+            <ul>
+                <li>Computer geek</li>
+                <li>Bike maniac</li>
+                <li><a href="http://www.osm.org">OpenStreetMap</a> freak</li>
+                <li>Amateur photographer</li>
+            </ul>
+            </div>
+            <div style="float: right">
+                <h2>Who I am not:</h2>
+                <ul>
+                    <li>JavaScript passionate</li>
+                    <li>UX Specialist</li>
+                    <li>Cartographer, land surveyor</li>
+                </ul>
+            </div>
+            <!-- TODO - fotografia -->
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Definition of problem</h2>
+            <div>
+                <div style="float: left">
+                    <p>Where to go for a trip?</p>
+                    <h2>Constraints:</h2>
+                    <ul>
+                        <li>Within Poland</li>
+                        <li>In rural areas</li>
+                        <li>Intresting and fun</li>
+                    </ul>
+                </div>
+                <div style="float: right">
+                    <img src="img/00 WNS.jpg" alt="placeholder">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Solution:
+            </h2>
+                <p><a href="http://www.wikilovesmonuments.org/">Wiki Loves Monument</a> contest</p>
+            <ul>
+                <li>Big database with national heritage objects</li>
+                <li>A lot of them in small cities and villages</li>
+                <li>It's some kind of geocaching game</li>
+                <li>Lots of objects (~80k)</li>
+            </ul>    
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>How does it look?</h2>
+            <img src="img/01 Wikipedia.png" alt="Lista Wikipedii">
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Impressed?</h2>
+         </div>
+    </section>        
+    <section class="slide">
+        <div>
+            <h2>New problems:</h2>
+            <ul>
+                <li>Spatial visualization of the list</li>
+                <li>Visualizing knowledge about object (has a photo, has been located)</li>
+                <li>For objects without GPS coords, where to look for them (possible location)</li>
+            </ul>
+            <h2>Solution:</h2>
+            Own Map
+         </div>
+    </section>
 
-            <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco
-                laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in
-                reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.
+    <!--
+    <section class="slide shout">
+        <div>
+            <h2>Another solution?</h2>
+         </div>
+    </section>
+    <section class="slide">
+        <div>
+            <p><a href="http://geschichtskarten.openstreetmap.de/historische_objekte/">Historische Objekte - Geschichtskarte - OpenStreetMap</a><p>
+            <!- TODO: Screenshot  ->
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <p>
             </p>
         </div>
     </section>
-
+    <section class="slide shout">
+        <div>
+            <h2>Build the solution by myself</h2>
+        </div>
+    </section>
+            -->
     <section class="slide">
         <div>
-            <h2>All Kind of Lists</h2>
+            <h2>Data sources:</h2>
+            <ul>
+                <li><a href="https://pl.wikipedia.org/wiki/Wikipedia:Wiki_Lubi_Zabytki/Lista_zabytk%C3%B3w">Wikipedia List</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/Category:Cultural_heritage_monuments_in_Poland_with_known_IDs">Wikipedia Commons georeferenced images</a></li>
+                <li><a href="http://geschichtskarten.openstreetmap.de/historische_objekte/translate/en/index-en.html">OpenStreetMap heritage objects</a></li>
+                <li><a href="http://www.otwartezabytki.pl/">OtwareZabytki</a> data</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Solution:</h2>
             <ol>
-                <li>Simple lists are marked with bullets</li>
-                <li>Ordered lists begin with a number</li>
-                <li>You can even nest lists one inside another
-                    <ul>
-                        <li>Or mix their types</li>
-                        <li>But do not go too far</li>
-                        <li>Otherwise audience will be bored</li>
-                    </ul>
-                </li>
-                <li>Look, seven rows exactly!</li>
+                <li>Gather data Wikipedia (<a href="http://www.python.org">Python</a> + <a href="TODO">BeautifulSoup</a>)</li>
+                <li>Gather data from OpenStreetMap (<a href="http://overpass-api.de/">Overpass API</a>, <a href="https://github.com/tyrasd/osmtogeojson">osmtogeojson</a>)</li>
+                <li>Gather data from Otwarte Zabytki (another <a href="TODO">Soup</a>)</li>
+                <li>Store data in <a href="http://www.mongodb.org">Mongo Database</a>)</li>
+                <li>Analyze data (<a href="http://www.python.org">Python</a>, <a href="http://nominatim.openstreetmap.org/">Nominatim</a>)</li>
+                <li>Create a map (<a href="http://leafletjs.com">Leaflet JS</a> and <a href="http://www.python.org">Python</a> REST services)</li>
             </ol>
         </div>
     </section>
-
     <section class="slide">
         <div>
-            <h2>JavaScript Samples</h2>
+            <h2><a href="http://overpass-api.de/">Overpass</a> / <a href="http://overpass-turbo.eu/">Overpass Turbo</a></h2>
+            Overpass API is a powerfull API to fetch data from OSM. Overpass Turbo - is an Overpass API integrated with a map for 
+            polishing your queries. Overpass database is optimized for quering. Results are returned as XML or as JSON. Query might
+            be written using XML or QL language.
+    </section>
+    <section class="slide">
+        <div>
             <pre>
-                <code><mark class="comment">// Crockford style IIFE</mark></code>
-                <code>(function () {</code>
-                <code>  var <mark>someVar</mark> = 'value';</code>
-                <code>  console.<mark class="important">log</mark>(someVar);</code>
-                <code>}());</code>
+<code>[out:json];</code>
+<code>area</code>
+<code>  ["boundary"="administrative"]</code>
+<code>  ["name"="Warszawa"]</code>
+<code>  ["type"="boundary"]-&gt;.boundaryarea;</code>
+<code>(</code>
+<code>  node(area.boundaryarea)</code>
+<code>  ["amenity"="fuel"]; <mark class="comment">/* find fuel stations in Warsaw */</mark></code>
+<code>);</code>
+<code>out;</code>
             </pre>
         </div>
     </section>
     <section class="slide">
         <div>
-            <h2>Even Tables</h2>
-            <table>
-                <tr>
-                    <th scope="col">Locavore</th>
-                    <th>Umami</th>
-                    <th>Helvetica</th>
-                    <th>Vegan</th>
-                </tr>
-                <tr>
-                    <th scope="row">Fingerstache</th>
-                    <td>Kale</td>
-                    <td>Chips</td>
-                    <td>Keytar</td>
-                </tr>
-                <tr>
-                    <th scope="row">Sriracha</th>
-                    <td>Gluten-free</td>
-                    <td>Ennui</td>
-                    <td>Keffiyeh</td>
-                </tr>
-                <tr>
-                    <th scope="row">Thundercats</th>
-                    <td>Jean</td>
-                    <td>Shorts</td>
-                    <td>Biodiesel</td>
-                </tr>
-                <tr>
-                    <th scope="row">Terry</th>
-                    <td>Richardson</td>
-                    <td>Swag</td>
-                    <td>Blog</td>
-                </tr>
-            </table>
-            <p>It’s good to have information organized.</p>
+            <img src="img/02 overpass.png">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Response data</h2>
+            <pre style="font-size: 18px;">
+                  <code>{"type": "node",</code>
+                  <code>"id": 81701702,</code>
+                  <code>"lat": 52.2382697,</code>
+                  <code>"lon": 20.9553151,</code>
+                  <code>"tags": {</code>
+                  <code>  <mark>"amenity": "fuel"</mark>,</code>
+                  <code>  "brand": "Bliska",</code>
+                  <code>  "fuel:biodiesel": "yes",</code>
+                  <code>  "fuel:diesel": "yes",</code>
+                  <code>  "fuel:octane_95": "yes",</code>
+                  <code>  "name": "Bliska",</code>
+                  <code>  "operator": "Orlen"</code>
+                  <code>}},</code>
+            </pre>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Nominatim</h2>
+            <ul>
+                <li>Geocoding service using OpenStreetMap data - converts string query to objects from OSM</li>
+                <li>nominatim.openstreetmap.org has a limits on its usage, and remember to set specific User-Agent and to cache results on your side</li>
+                <li>OSM has more than <strong>5M address</strong> points, and grows ~500k quaterly</li>
+                <li>OSM has all teritory administration borders, so use them in your searches - either as query arguments (city, county, state) 
+                or filter results, if you you have any hints, where to look</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Let's create the map</h2>
+            <pre style="font-size: 20px;">
+                <code>var map = new L.Map('map', {</code>
+                <code>    center: [52.232,21.021],</code>
+                <code>    zoom: 13,</code>
+                <code>    loadingControl: true,</code>
+                <code>});</code>
+                <code>var baseLayer = new L.TileLayer(</code>
+                <code>        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',  </code>
+                <code>        { attribution: 'Map data &copy; 2014 OpenStreetMap contributors',}</code>
+                <code>);</code>
+                <code>map.addLayer(baseLayer);</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Add features / plugins</h2>
+            <ul>
+                <li><a href="https://github.com/domoritz/leaflet-locatecontrol">LocateControl</a> if you want to locate the user</li>
+                <li><a href="https://github.com/mlevans/leaflet-hash">Hash</a> if you want to keep current map state in URL</li>
+                <li><a href="https://github.com/Leaflet/Leaflet.markercluster">MarkerCluster</a> if you have a lot (&gt;1k) of markers on the map</li>
+                <li><a href="https://github.com/glenrobertson/leaflet-tilelayer-geojson/">TileLayer GeoJSON</a> if you need to load data dynamically</li>
+                <li>... and lots more</li>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Why TileLayer</h2>
+            <div style="display: flex;">
+                <div style="float: left;">
+                    Advantages
+                    <ul>
+                        <li>To avoid loading of all POI (which is ~50MB of json</li>
+                        <li>It dividies world into predefined tiles (2<sup>2n</sup> for zoom level n)</li>
+                        <li>Easy to cache (both by browser and Contend Delivery Networks)</li>
+                   </ul>
+                </div>
+                <div style="float: right; margin-left: 2em">
+                    Disadvantages
+                    <ul>
+                        <li>Data is not shared between zoom levels</li>
+                        <li>Introduces layer of complication if you need to use marker clustering</li>
+                    </ul>
+                </div>
+            </div>
+       </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Nice hacks</h2>
+            <ul>
+                <li>Use smaller <code>maxNativeZoom</code> for GeoJSON layer than <code>maxZoom</code> of base layer, to reduce reloading of markes</li>
+                <li>Use CDN for your map. There are companies that are providing great service for free, sufficient to cover this use case</li>
+                <li>Use <code>L.geoJson()</code> if you can afford to download all points at once</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Nice hacks</h2>
+            <ul>
+                <li>Use <a href="http://geojsonlint.com/">GeoJSON LINT</a> if your GeoJSON object is not behaving as expected</li>
+                <li>MongoDB has a good support for spatial queries including <code>$geoWithin</code> and <code>$near</code> </li>
+                <li>If you have a lot of data to show, generate transparent tiles and use them as a overlay layer</li>
+                <li>Use a custom style for <a href="http://mapnik.org">Mapnik</a> or use <a href="http://maperitive">Maperitive</a> to generate tiles for your map</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Result</h2>
+            <img src="img/03 result.png">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Result</h2>
+            <img src="img/04 result.png">
         </div>
     </section>
 
-    <section class="slide cover">
+    <section class="slide shout">
         <div>
-            <img src="./themes/warsawjs/pictures/bigphoto.jpg" alt="">
+            <h2>Questions?</h2>
         </div>
     </section>
 
@@ -121,8 +319,6 @@
             <h2>See you next month at WarsawJS</h2>
         </div>
     </section>
-
-    <p class="badge"><a href="https://github.com/warsawjs/presentation-template">Fork me on Github</a></p>
 
     <div class="progress">
         <div></div>
