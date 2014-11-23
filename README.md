@@ -1,4 +1,4 @@
-# WarsawJS Presentation Template
+# 2014-11-24 WarsawJS: Cartographic visualizations
 
 ![Image][0] 
 
